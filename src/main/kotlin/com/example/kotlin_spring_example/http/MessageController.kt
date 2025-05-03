@@ -1,4 +1,4 @@
-package com.example.kotlin_spring_example.controller
+package com.example.kotlin_spring_example.http
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
