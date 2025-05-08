@@ -1,6 +1,7 @@
 package com.example.kotlin_spring_example.data.mongodb.controller
 
 import com.example.kotlin_spring_example.data.mongodb.domain.ProductDTO
+import com.example.kotlin_spring_example.data.mongodb.domain.Stock
 import com.example.kotlin_spring_example.data.mongodb.service.ProductService
 import org.springframework.http.HttpStatus.OK
 import org.springframework.http.HttpStatus.CREATED
@@ -22,6 +23,21 @@ class ProductControler (
         }
 
         return ResponseEntity(productDTO, OK);
+    }
+
+    @GetMapping
+    fun findAll(): ResponseEntity<List<ProductDTO>> {
+        return ResponseEntity(productService.findAll(), OK);
+    }
+
+    @GetMapping("/type/{type}")
+    fun findByType(@PathVariable("type") type : String): ResponseEntity<List<ProductDTO>> {
+        return ResponseEntity(productService.findByType(type), OK);
+    }
+
+    @GetMapping("/stock")
+    fun findStock(): ResponseEntity<Stock> {
+        return ResponseEntity(productService.findStock(), OK);
     }
 
     @PostMapping

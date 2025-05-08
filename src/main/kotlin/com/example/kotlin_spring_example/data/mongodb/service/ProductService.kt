@@ -2,6 +2,7 @@ package com.example.kotlin_spring_example.data.mongodb.service
 
 import com.example.kotlin_spring_example.data.mongodb.domain.Product
 import com.example.kotlin_spring_example.data.mongodb.domain.ProductDTO
+import com.example.kotlin_spring_example.data.mongodb.domain.Stock
 import com.example.kotlin_spring_example.data.mongodb.repository.ProductRepository
 import org.springframework.stereotype.Service
 import java.time.LocalDateTime
@@ -14,6 +15,18 @@ class ProductService(
     fun find(code : Long): ProductDTO? {
         val product : Product? = productRepository.findById(code)
         return product?.let(this::toProductDTO)
+    }
+
+    fun findAll(): List<ProductDTO> {
+        return productRepository.findAll().map(this::toProductDTO)
+    }
+
+    fun findByType(type: String): List<ProductDTO> {
+        return productRepository.findByType(type).map(this::toProductDTO)
+    }
+
+    fun findStock() : Stock {
+        return productRepository.findStock()
     }
 
     fun save(productDTO : ProductDTO) {
