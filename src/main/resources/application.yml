@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://<user>:<password>@<address>/<database>?retryWrites=true&w=majority&appName=kotlin-spring-example
