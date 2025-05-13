@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/mongo/product")
-class ProductControler (
+class ProductController (
     val productService: ProductService
 ) {
 

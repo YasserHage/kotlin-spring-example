@@ -1,4 +1,6 @@
 spring:
+  datasource:
+    url: jdbc:postgresql://<DB_HOST>:<DB_PORT>/<DB_NAME>?user=<USER>&password=<PASSWORD>&sslmode=require
   data:
     mongodb:
       uri: mongodb+srv://<user>:<password>@<address>/<database>?retryWrites=true&w=majority&appName=kotlin-spring-example
